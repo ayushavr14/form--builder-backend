@@ -6,10 +6,13 @@ const Form = require("./schema/schema");
 
 const app = express();
 const PORT = 5000;
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 // Connect to MongoDB
 mongoose
-  .connect("", {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
